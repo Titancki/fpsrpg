@@ -10,7 +10,6 @@ func _ready():
 	
 	if "--server" in OS.get_cmdline_args():
 		host_game().call_deferred()
-	$Net/ServerBrowser.joinGame.connect(JoinByIP)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -36,7 +35,7 @@ func peer_disconnected(id):
 # Called only from clients
 func connected_to_server():
 	print("Connected to server !")
-	SendPlayerInformation.rpc_id(1, $Net/LineEdit.text, multiplayer.get_unique_id())
+	SendPlayerInformation.rpc_id(1, $Net/VBoxContainer/HBoxContainer3/NameInput.text, multiplayer.get_unique_id())
 
 # Called only from clients
 func connection_failed():
@@ -52,7 +51,7 @@ func host_game():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting For Players!")
-	SendPlayerInformation($Net/LineEdit.text, multiplayer.get_unique_id())
+	SendPlayerInformation($Net/VBoxContainer/HBoxContainer3/NameInput.text, multiplayer.get_unique_id())
 
 func JoinByIP(ip):	
 	var peer = ENetMultiplayerPeer.new()

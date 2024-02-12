@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5xa6m5bfua6j"]
+[gd_scene load_steps=7 format=3 uid="uid://c5xa6m5bfua6j"]
 
 [ext_resource type="Script" path="res://System/Multiplayer/multiplayer.gd" id="1_mne7b"]
 [ext_resource type="Texture2D" uid="uid://rkcl6c4csgmc" path="res://Assets/bg-map.jpeg" id="2_8deq1"]
 [ext_resource type="Script" path="res://System/Multiplayer/net.gd" id="2_sdnar"]
-[ext_resource type="Script" path="res://System/Multiplayer/server_browser.gd" id="3_5qplw"]
-[ext_resource type="PackedScene" uid="uid://dykuctvnagefh" path="res://System/Multiplayer/server_info.tscn" id="4_c2rgp"]
-[ext_resource type="PackedScene" uid="uid://c3qwjfobjr340" path="res://Assets/theme/panel.tscn" id="5_dc32p"]
+[ext_resource type="FontFile" uid="uid://4ohgkc18jflx" path="res://Assets/theme/Kanit-Medium.ttf" id="4_541jb"]
 [ext_resource type="Theme" uid="uid://fr2r8kbe6css" path="res://Assets/theme/default.tres" id="6_3mtit"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1m1bl"]
@@ -39,112 +37,91 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1m1bl")
 
-[node name="Host" type="Button" parent="Net"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 80.0
-offset_right = 117.0
-offset_bottom = 111.0
-text = "Host"
-
-[node name="Join" type="Button" parent="Net"]
-layout_mode = 0
-offset_left = 125.0
-offset_top = 80.0
-offset_right = 230.0
-offset_bottom = 111.0
-text = "Join"
-
-[node name="LineEdit" type="LineEdit" parent="Net"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 41.0
-offset_right = 346.0
-offset_bottom = 72.0
-
-[node name="Label" type="Label" parent="Net"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 45.0
-offset_right = 75.0
-offset_bottom = 68.0
-text = "Name : "
-
-[node name="ServerBrowser" type="Control" parent="Net"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 150.0
-offset_right = -10.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_5qplw")
-broadcastAddress = "10.0.2.255"
-serverInfo = ExtResource("4_c2rgp")
-
-[node name="panel" parent="Net/ServerBrowser" instance=ExtResource("5_dc32p")]
-layout_mode = 1
-
-[node name="ServerTable" type="VBoxContainer" parent="Net/ServerBrowser"]
+[node name="Title" type="Label" parent="Net"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+offset_left = -188.5
+offset_right = 188.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.294118, 0.211765, 0.0705882, 1)
+theme_override_colors/font_outline_color = Color(0.909804, 0.87451, 0.658824, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_541jb")
+theme_override_font_sizes/font_size = 48
+text = "FPSRPG PROJECT"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Net"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.45
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Net/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Net/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
 theme = ExtResource("6_3mtit")
+text = "Name : "
 
-[node name="Header" type="HBoxContainer" parent="Net/ServerBrowser/ServerTable"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+[node name="NameInput" type="LineEdit" parent="Net/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Name"
 
-[node name="IpAdress" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Net/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ip" type="Label" parent="Net/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("6_3mtit")
+text = "Address"
+
+[node name="IpInput" type="LineEdit" parent="Net/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "IP Adress"
 
-[node name="PlayerCount" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Net/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Player Count"
 
-[node name="Join" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+[node name="Host" type="Button" parent="Net/VBoxContainer/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Join
-"
-
-[node name="Separator" type="Control" parent="Net/ServerBrowser/ServerTable"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="ServerList" type="VBoxContainer" parent="Net/ServerBrowser/ServerTable"]
-layout_mode = 2
-
-[node name="Host" type="Button" parent="Net/ServerBrowser/ServerTable"]
-layout_mode = 2
+theme = ExtResource("6_3mtit")
 text = "Host"
 
-[node name="BroadcastTimer" type="Timer" parent="Net/ServerBrowser"]
+[node name="Join" type="Button" parent="Net/VBoxContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_3mtit")
+text = "Join"
 
-[node name="Hoster" type="Label" parent="Net/ServerBrowser"]
-layout_mode = 0
-offset_left = 406.0
-offset_top = -143.0
-offset_right = 629.0
-offset_bottom = -120.0
+[node name="Button" type="Button" parent="Net"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98
+anchor_top = 0.98
+anchor_right = 0.98
+anchor_bottom = 0.98
+offset_left = -105.04
+offset_top = -25.04
+offset_right = 2.95996
+offset_bottom = -0.0400391
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_3mtit")
+text = "Quit game"
 
-[connection signal="button_down" from="Net/Host" to="Net" method="_on_host_button_down"]
-[connection signal="button_down" from="Net/Join" to="Net" method="_on_join_button_down"]
-[connection signal="timeout" from="Net/ServerBrowser/BroadcastTimer" to="Net/ServerBrowser" method="_on_broadcast_timer_timeout"]
+[connection signal="button_down" from="Net/VBoxContainer/HBoxContainer2/HBoxContainer/Host" to="Net" method="_on_host_button_down"]
+[connection signal="button_down" from="Net/VBoxContainer/HBoxContainer2/HBoxContainer/Join" to="Net" method="_on_join_button_down"]
