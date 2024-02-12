@@ -8,3 +8,8 @@ func _on_host_button_down():
 func _on_join_button_down():
 	$"..".JoinByIP($"..".address)
 	pass # Replace with function body.
+
+
+
+func _on_quit_button_down():
+	get_tree().quit()

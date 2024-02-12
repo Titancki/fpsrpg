@@ -107,7 +107,7 @@ size_flags_horizontal = 3
 theme = ExtResource("6_3mtit")
 text = "Join"
 
-[node name="Button" type="Button" parent="Net"]
+[node name="Quit" type="Button" parent="Net"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
@@ -125,3 +125,4 @@ text = "Quit game"
 
 [connection signal="button_down" from="Net/VBoxContainer/HBoxContainer2/HBoxContainer/Host" to="Net" method="_on_host_button_down"]
 [connection signal="button_down" from="Net/VBoxContainer/HBoxContainer2/HBoxContainer/Join" to="Net" method="_on_join_button_down"]
+[connection signal="button_down" from="Net/Quit" to="Net" method="_on_quit_button_down"]
