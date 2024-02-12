@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5xa6m5bfua6j"]
+
+[ext_resource type="Script" path="res://System/Multiplayer/multiplayer.gd" id="1_mne7b"]
+[ext_resource type="Texture2D" uid="uid://rkcl6c4csgmc" path="res://Assets/bg-map.jpeg" id="2_8deq1"]
+[ext_resource type="Script" path="res://System/Multiplayer/net.gd" id="2_sdnar"]
+[ext_resource type="Script" path="res://System/Multiplayer/server_browser.gd" id="3_5qplw"]
+[ext_resource type="PackedScene" uid="uid://dykuctvnagefh" path="res://System/Multiplayer/server_info.tscn" id="4_c2rgp"]
+[ext_resource type="PackedScene" uid="uid://c3qwjfobjr340" path="res://Assets/theme/panel.tscn" id="5_dc32p"]
+[ext_resource type="Theme" uid="uid://fr2r8kbe6css" path="res://Assets/theme/default.tres" id="6_3mtit"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1m1bl"]
+texture = ExtResource("2_8deq1")
+
+[node name="Multiplayer" type="Node"]
+script = ExtResource("1_mne7b")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/test_city.tscn")
+spawn_path = NodePath("../Level")
+spawn_limit = 1
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Net" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_sdnar")
+
+[node name="background" type="Panel" parent="Net"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1m1bl")
+
+[node name="Host" type="Button" parent="Net"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 80.0
+offset_right = 117.0
+offset_bottom = 111.0
+text = "Host"
+
+[node name="Join" type="Button" parent="Net"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 80.0
+offset_right = 230.0
+offset_bottom = 111.0
+text = "Join"
+
+[node name="LineEdit" type="LineEdit" parent="Net"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 41.0
+offset_right = 346.0
+offset_bottom = 72.0
+
+[node name="Label" type="Label" parent="Net"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 45.0
+offset_right = 75.0
+offset_bottom = 68.0
+text = "Name : "
+
+[node name="ServerBrowser" type="Control" parent="Net"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 150.0
+offset_right = -10.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_5qplw")
+broadcastAddress = "10.0.2.255"
+serverInfo = ExtResource("4_c2rgp")
+
+[node name="panel" parent="Net/ServerBrowser" instance=ExtResource("5_dc32p")]
+layout_mode = 1
+
+[node name="ServerTable" type="VBoxContainer" parent="Net/ServerBrowser"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_3mtit")
+
+[node name="Header" type="HBoxContainer" parent="Net/ServerBrowser/ServerTable"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="IpAdress" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "IP Adress"
+
+[node name="PlayerCount" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player Count"
+
+[node name="Join" type="Label" parent="Net/ServerBrowser/ServerTable/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join
+"
+
+[node name="Separator" type="Control" parent="Net/ServerBrowser/ServerTable"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ServerList" type="VBoxContainer" parent="Net/ServerBrowser/ServerTable"]
+layout_mode = 2
+
+[node name="Host" type="Button" parent="Net/ServerBrowser/ServerTable"]
+layout_mode = 2
+text = "Host"
+
+[node name="BroadcastTimer" type="Timer" parent="Net/ServerBrowser"]
+
+[node name="Hoster" type="Label" parent="Net/ServerBrowser"]
+layout_mode = 0
+offset_left = 406.0
+offset_top = -143.0
+offset_right = 629.0
+offset_bottom = -120.0
+
+[connection signal="button_down" from="Net/Host" to="Net" method="_on_host_button_down"]
+[connection signal="button_down" from="Net/Join" to="Net" method="_on_join_button_down"]
+[connection signal="timeout" from="Net/ServerBrowser/BroadcastTimer" to="Net/ServerBrowser" method="_on_broadcast_timer_timeout"]

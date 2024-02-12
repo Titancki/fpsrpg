@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdurr8vburv6"]
+
+[ext_resource type="Script" path="res://scenes/test_city.gd" id="1_8ka5l"]
+[ext_resource type="Texture2D" uid="uid://xcmmdbm450sd" path="res://Assets/cbblestone.png" id="3_qxlst"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7j0bl"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0p21x"]
+sky_material = SubResource("ProceduralSkyMaterial_7j0bl")
+
+[sub_resource type="Environment" id="Environment_7ano2"]
+background_mode = 2
+sky = SubResource("Sky_0p21x")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njsp1"]
+size = Vector3(10, 12, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_etc4n"]
+size = Vector3(10, 12, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i6d17"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p8vaq"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lu711"]
+albedo_texture = ExtResource("3_qxlst")
+uv1_scale = Vector3(500, 500, 500)
+
+[node name="TestCity" type="Node3D"]
+script = ExtResource("1_8ka5l")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7ano2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Player/player.tscn")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Building" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.9365)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Building2" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5522, 0, -12.817)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Building3" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0514, 0, -10.9428)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Building4" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0514, 0, 14.8404)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Building5" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87152, 0, 11.7952)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Building6" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2684, 0, 16.7237)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Building7" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2354, 0, 30.0563)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Building7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("BoxShape3D_njsp1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Building7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_etc4n")
+
+[node name="Ground" type="StaticBody3D" parent="World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_i6d17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground"]
+mesh = SubResource("PlaneMesh_p8vaq")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_lu711")
+
+[node name="SpawnLocations" type="Node3D" parent="."]
+
+[node name="0" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, 20.7835)
+
+[node name="1" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, 16.5881)
+
+[node name="2" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, 11.3901)
+
+[node name="3" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, 4.50142)
+
+[node name="4" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, -1.06458)
+
+[node name="5" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, -7.21737)
+
+[node name="6" type="Marker3D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3874, 0, -12.31)

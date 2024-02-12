@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://fr2r8kbe6css"]
+
+[ext_resource type="FontFile" uid="uid://4ohgkc18jflx" path="res://Assets/theme/Kanit-Medium.ttf" id="1_p0g3o"]
+[ext_resource type="Texture2D" uid="uid://b0wmpx0ahb8db" path="res://Assets/theme/panel.png" id="1_qcc2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2k43"]
+bg_color = Color(0.313726, 0.239216, 0.117647, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.94902, 0.858824, 0.682353, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gnqx"]
+bg_color = Color(0.482353, 0.376471, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.988235, 0.886275, 0.705882, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5ucj"]
+texture = ExtResource("1_qcc2i")
+region_rect = Rect2(72, 56, 112, 152)
+
+[resource]
+Button/fonts/font = ExtResource("1_p0g3o")
+Button/styles/focus = SubResource("StyleBoxFlat_u2k43")
+Button/styles/hover = SubResource("StyleBoxFlat_u2k43")
+Button/styles/normal = SubResource("StyleBoxFlat_1gnqx")
+Button/styles/pressed = SubResource("StyleBoxFlat_u2k43")
+Label/fonts/font = ExtResource("1_p0g3o")
+Panel/styles/panel = SubResource("StyleBoxTexture_l5ucj")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://bswl4vx25p7su"]
+
+[ext_resource type="FontFile" uid="uid://bnsgciswk5k81" path="res://Assets/theme/Pompiere-Regular.ttf" id="1_03537"]
+[ext_resource type="Texture2D" uid="uid://cu4bvywd8ifev" path="res://Assets/theme/rounded.png" id="2_6uye0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr4tw"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wwsd"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_528ua"]
+bg_color = Color(0.972549, 0.945098, 0.976471, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.976471, 0.886275, 0.713726, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejdcq"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_euy3v"]
+default_font = ExtResource("1_03537")
+default_font_size = 16
+Button/styles/focus = SubResource("StyleBoxFlat_hr4tw")
+Button/styles/hover = SubResource("StyleBoxFlat_7wwsd")
+Button/styles/normal = SubResource("StyleBoxFlat_528ua")
+Button/styles/pressed = SubResource("StyleBoxFlat_ejdcq")
+
+[node name="RoundedButton" type="Button"]
+top_level = true
+offset_right = 58.0
+offset_bottom = 40.0
+theme = SubResource("Theme_euy3v")
+text = "Un Bouton"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6uye0")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
