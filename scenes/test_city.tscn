@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bdurr8vburv6"]
 
-[ext_resource type="Script" path="res://scenes/test_city.gd" id="1_8ka5l"]
+[ext_resource type="Script" path="res://Scenes/test_city.gd" id="1_8ka5l"]
 [ext_resource type="Texture2D" uid="uid://xcmmdbm450sd" path="res://Assets/cbblestone.png" id="3_qxlst"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7j0bl"]
