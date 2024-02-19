@@ -14,27 +14,24 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var attacking = load("res://StateMachine/attacking.gd")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	var animator = entity.get_node("Character/AnimationPlayer")
+	var animator = entity.get_node("Character/CharacterAnimation")
 	var current_animation = animator.get_current_animation()
 	if not entity.is_on_floor():
 		if current_animation != "falling":
 			animator.set_current_animation("falling")
 	else:
 		if current_state == STATE.JUMPING && entity.is_on_floor():
-			jumping.entity = entity
 			if is_player:
 				jumping.jump(delta, entity)
 		elif current_state == STATE.IDLING:
-			idling.entity = entity
 			if is_player:
 				idling.player_idle(delta, entity)
 		elif current_state == STATE.MOVING:
-			moving.entity = entity
 			if is_player:
 				moving.player_move(delta, entity)
 		elif current_state == STATE.ATTACKING:
-			attacking.entity = entity
 			if is_player:
 				attacking.attack(delta, entity)
 		elif current_state == STATE.CASTING:

@@ -1,15 +1,15 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://fr2r8kbe6css"]
 
 [ext_resource type="FontFile" uid="uid://4ohgkc18jflx" path="res://Assets/theme/Kanit-Medium.ttf" id="1_p0g3o"]
-[ext_resource type="Texture2D" uid="uid://b0wmpx0ahb8db" path="res://Assets/theme/panel.png" id="1_qcc2i"]
 [ext_resource type="Texture2D" uid="uid://r4drcdtkfc6w" path="res://Assets/theme/btn.png" id="2_kquj4"]
+[ext_resource type="Texture2D" uid="uid://bdd4qawrk6lal" path="res://Assets/theme/panel2_mini.png" id="3_auvae"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hj52d"]
 texture = ExtResource("2_kquj4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5ucj"]
-texture = ExtResource("1_qcc2i")
-region_rect = Rect2(72, 56, 112, 152)
+texture = ExtResource("3_auvae")
+region_rect = Rect2(0, 0, 128, 128)
 
 [resource]
 Button/colors/font_color = Color(0.294118, 0.211765, 0.0705882, 1)

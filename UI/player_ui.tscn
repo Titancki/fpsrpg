@@ -1,0 +1,212 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvmbmx10bi25h"]
+
+[ext_resource type="Script" path="res://UI/player_ui.gd" id="1_qv3xm"]
+[ext_resource type="Texture2D" uid="uid://cm4lhthq16c4t" path="res://Assets/icons/run.jpg" id="2_hfvcv"]
+[ext_resource type="Texture2D" uid="uid://bgprissc14v4y" path="res://Assets/icons/hit.jpg" id="3_7yc3u"]
+[ext_resource type="Texture2D" uid="uid://cfyhqgsjlfy8i" path="res://Assets/theme/bar.png" id="4_ce3se"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q10xn"]
+bg_color = Color(0, 0.6, 0.6, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkfd4"]
+bg_color = Color(0.52549, 0.635294, 0.545098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1xlv"]
+bg_color = Color(0.603922, 0.396078, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf4gl"]
+bg_color = Color(0, 0, 0, 0.105882)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.560784, 0.317647, 0.0156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa48v"]
+bg_color = Color(0.521569, 0.0862745, 0.109804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55ld1"]
+texture = ExtResource("4_ce3se")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_qv3xm")
+
+[node name="Skills" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -86.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="move_action" type="Button" parent="Skills"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 157.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("2_hfvcv")
+
+[node name="cooldown" type="TextureProgressBar" parent="Skills/move_action"]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="active" type="Panel" parent="Skills/move_action"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q10xn")
+
+[node name="e_action" type="Panel" parent="Skills"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+
+[node name="cooldown" type="TextureProgressBar" parent="Skills/e_action"]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="lmouse_action" type="Button" parent="Skills"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -50.0
+offset_right = 155.0
+offset_bottom = 157.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("3_7yc3u")
+
+[node name="cooldown" type="TextureProgressBar" parent="Skills/lmouse_action"]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="rmouse_action" type="Panel" parent="Skills"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -105.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="cooldown" type="TextureProgressBar" parent="Skills/rmouse_action"]
+layout_mode = 2
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="target" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="peer_id" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="xp_bar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_xkfd4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l1xlv")
+show_percentage = false
+
+[node name="Label" type="Label" parent="xp_bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 27.0
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+text = "Level 0"
+
+[node name="hp_bar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 129.0
+offset_bottom = 11.0
+grow_vertical = 0
+rotation = -1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_mf4gl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pa48v")
+
+[node name="Panel" type="Panel" parent="hp_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_55ld1")
+
+[connection signal="pressed" from="Skills/move_action" to="." method="_on_move_action_pressed"]

@@ -1,6 +1,5 @@
 extends Node
 
-static var entity
 static var is_finished = false
 
 func _ready():
@@ -8,7 +7,7 @@ func _ready():
 
 
 static func jump(delta, entity):
-	var animator = entity.get_node("Character/AnimationPlayer")
+	var animator = entity.get_node("Character/CharacterAnimation")
 	var current_animation = animator.get_current_animation()
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction = (entity.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

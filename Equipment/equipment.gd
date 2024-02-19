@@ -1,12 +1,39 @@
 extends Node
 
-var sword_path = "res://Equipment/sword.tscn"
-var sword = load("res://Equipment/sword.tscn").instantiate()
-# Called when the node enters the scene tree for the first time.
+var all = {
+	sword = {
+		id = 1,
+		path = "res://Equipment/sword.tscn",
+		name = "Sword"
+	},
+	hammer = {
+		id = 2,
+		path = "res://Equipment/hammer.tscn",
+		name = "Hammer"
+	}
+}
+
+signal on_equip(player : Player, equipment: Dictionary, socket: BoneAttachment3D)
+signal on_desequip(player: Player, socket: BoneAttachment3D)
+
 func _ready():
-	pass # Replace with function body.
+	on_equip.connect(equip)
+	on_desequip.connect(desequip)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func equip(equipment: Dictionary, player: Player, socket: BoneAttachment3D):
+	var container = socket.get_node("Container")
+	
+	if container.get_child_count() == 0 || container.get_children()[0].equip_id != equipment.id:
+		desequip(player, socket)
+		var new_equip = load(equipment.path).instantiate()
+		new_equip.wielder = player
+		new_equip.equip_id = equipment.id
+		new_equip.equip_name = equipment.name
+		container.add_child(new_equip, true)
+
+func desequip(player: Player, socket: BoneAttachment3D):
+	var container = socket.get_node("Container")
+	
+	if container.get_child_count() > 0:
+		container.get_children()[0].queue_free()

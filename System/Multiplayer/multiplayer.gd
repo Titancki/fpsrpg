@@ -22,7 +22,6 @@ func peer_connected(id):
 # Called on the server and clients
 func peer_disconnected(id):
 	print("Player Disconnected " + str(id))
-	# Need to refacto, bug prone
 	if id == 1:
 		get_tree().quit() # Replace by main menu redirect
 	System.players.erase(id)
