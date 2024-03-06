@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InventoryResource" load_steps=5 format=3 uid="uid://kj3j26m7gc0s"]
+
+[ext_resource type="Resource" uid="uid://ce7bad2xr48mt" path="res://Items/weapon/ressources/sword.tres" id="1_sxu8b"]
+[ext_resource type="Script" path="res://Items/inventory_resource.gd" id="1_yjhl4"]
+[ext_resource type="Resource" uid="uid://7ribhjmnkdd6" path="res://Items/weapon/ressources/hammer.tres" id="2_1yxwp"]
+[ext_resource type="Resource" uid="uid://da7q0udepfd7t" path="res://Items/offhand/ressources/shield.tres" id="3_cvlcj"]
+
+[resource]
+script = ExtResource("1_yjhl4")
+items = {
+2001: {
+"amount": 1,
+"item": ExtResource("1_sxu8b")
+},
+2002: {
+"amount": 1,
+"item": ExtResource("2_1yxwp")
+},
+3001: {
+"amount": 1,
+"item": ExtResource("3_cvlcj")
+}
+}

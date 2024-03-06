@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw4ft26n00l4s"]
+
+[ext_resource type="Theme" uid="uid://fr2r8kbe6css" path="res://Assets/theme/default.tres" id="1_rcq81"]
+[ext_resource type="Texture2D" uid="uid://c2nt4fuyldljw" path="res://Assets/manequin.png" id="2_00qqh"]
+[ext_resource type="PackedScene" uid="uid://bya7tj1khaeyb" path="res://UI/Inventory/inventory_slot.tscn" id="4_5rhpv"]
+[ext_resource type="AudioStream" uid="uid://btr4c30rdk5kw" path="res://Assets/sounds/open-bag.mp3" id="4_b5ww7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55wv8"]
+texture = ExtResource("2_00qqh")
+
+[node name="EquipmentPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 500.0
+
+[node name="Background" type="Panel" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rcq81")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -119.0
+offset_top = 60.0
+offset_right = 119.0
+offset_bottom = 310.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_55wv8")
+
+[node name="EquipementSlots" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.62
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponLeft" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 77.0
+offset_right = 93.0
+offset_bottom = 117.0
+tooltip_text = "Hammer"
+show_amount = false
+socket_is = 0
+
+[node name="OffHand" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 77.0
+offset_right = 211.0
+offset_bottom = 117.0
+tooltip_text = "Round Shield"
+show_amount = false
+socket_is = 1
+
+[node name="BodyArmour" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 134.0
+offset_right = 93.0
+offset_bottom = 174.0
+tooltip_text = "Round Shield"
+show_amount = false
+socket_is = 2
+
+[node name="Helmet" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 29.0
+offset_right = 150.0
+offset_bottom = 69.0
+show_amount = false
+socket_is = 2
+
+[node name="Belt" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 133.0
+offset_right = 211.0
+offset_bottom = 173.0
+show_amount = false
+socket_is = 3
+
+[node name="Troussers" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 187.0
+offset_right = 147.0
+offset_bottom = 227.0
+show_amount = false
+socket_is = 4
+
+[node name="Boots" parent="EquipementSlots" instance=ExtResource("4_5rhpv")]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 239.0
+offset_right = 147.0
+offset_bottom = 279.0
+show_amount = false
+socket_is = 5
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.62
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rcq81")
+
+[node name="Title" type="Label" parent="Stats"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.5
+offset_top = 5.0
+offset_right = 16.5
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Stats"
+
+[node name="Divider" type="ColorRect" parent="Stats"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 17.0
+offset_right = 97.0
+offset_bottom = 19.0
+color = Color(0.733333, 0.380392, 0.266667, 1)
+
+[node name="Divider2" type="ColorRect" parent="Stats"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 17.0
+offset_right = 236.0
+offset_bottom = 19.0
+color = Color(0.733333, 0.380392, 0.266667, 1)
+
+[node name="BagOpening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_b5ww7")
+pitch_scale = 1.25

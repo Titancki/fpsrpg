@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=4 format=3 uid="uid://7ribhjmnkdd6"]
+
+[ext_resource type="PackedScene" uid="uid://ds5p8j5kuubte" path="res://Items/weapon/scenes/hammer.tscn" id="1_1gc3k"]
+[ext_resource type="Script" path="res://Items/equipment_resource.gd" id="1_lxvha"]
+[ext_resource type="Texture2D" uid="uid://bwxwlivnx4weh" path="res://Assets/icons/2002.png" id="2_1tjp5"]
+
+[resource]
+script = ExtResource("1_lxvha")
+required_strength = 0
+required_agility = 0
+required_dexterity = 0
+flat_damage = 0.0
+multiplicative_damage = 1.0
+equipment_scene = ExtResource("1_1gc3k")
+item_icon_texture = ExtResource("2_1tjp5")
+item_name = "Hammer"
+item_id = 2002
+item_description = "Not really efficiant, but quite funny! Bonk!"

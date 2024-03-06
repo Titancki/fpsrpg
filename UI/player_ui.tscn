@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvmbmx10bi25h"]
+[gd_scene load_steps=13 format=3 uid="uid://cvmbmx10bi25h"]
 
 [ext_resource type="Script" path="res://UI/player_ui.gd" id="1_qv3xm"]
+[ext_resource type="PackedScene" uid="uid://cw4ft26n00l4s" path="res://UI/Inventory/equipment_panel.tscn" id="2_3s585"]
 [ext_resource type="Texture2D" uid="uid://cm4lhthq16c4t" path="res://Assets/icons/run.jpg" id="2_hfvcv"]
+[ext_resource type="PackedScene" uid="uid://dn6d6lppg7qhm" path="res://UI/Inventory/inventory.tscn" id="2_uraf2"]
 [ext_resource type="Texture2D" uid="uid://bgprissc14v4y" path="res://Assets/icons/hit.jpg" id="3_7yc3u"]
 [ext_resource type="Texture2D" uid="uid://cfyhqgsjlfy8i" path="res://Assets/theme/bar.png" id="4_ce3se"]
 
@@ -38,6 +40,19 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("1_qv3xm")
+
+[node name="EquipmentPanel" parent="." instance=ExtResource("2_3s585")]
+visible = false
+layout_mode = 1
+
+[node name="Inventory" parent="EquipmentPanel" instance=ExtResource("2_uraf2")]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 220.0
+offset_top = 20.0
+offset_right = 352.0
+offset_bottom = 173.0
 
 [node name="Skills" type="Control" parent="."]
 layout_mode = 1

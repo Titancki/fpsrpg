@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=4 format=3 uid="uid://ce7bad2xr48mt"]
+
+[ext_resource type="PackedScene" uid="uid://ibnlpqvto60y" path="res://Items/weapon/scenes/sword.tscn" id="1_hr1hu"]
+[ext_resource type="Script" path="res://Items/equipment_resource.gd" id="2_6e00a"]
+[ext_resource type="Texture2D" uid="uid://8id25anbx0r7" path="res://Assets/icons/2001.png" id="2_r3vdn"]
+
+[resource]
+script = ExtResource("2_6e00a")
+required_strength = 0
+required_agility = 0
+required_dexterity = 0
+flat_damage = 0.0
+multiplicative_damage = 1.0
+equipment_scene = ExtResource("1_hr1hu")
+item_icon_texture = ExtResource("2_r3vdn")
+item_name = "Sword"
+item_id = 2001
+item_description = "A simple sword, yet, very usefull."

@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bya7tj1khaeyb"]
+
+[ext_resource type="Script" path="res://UI/Inventory/inventory_slot.gd" id="1_p0rcw"]
+[ext_resource type="FontFile" uid="uid://4ohgkc18jflx" path="res://Assets/theme/Kanit-Medium.ttf" id="2_8yiih"]
+[ext_resource type="Texture2D" uid="uid://dlw5xv5ap1nl6" path="res://Assets/inventory_slot_grey.png" id="4_ika3g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nhjd"]
+texture = ExtResource("4_ika3g")
+modulate_color = Color(0.815686, 0.45098, 0.321569, 0.643137)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mcql7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3cy3"]
+line_spacing = 0.0
+font = ExtResource("2_8yiih")
+font_size = 10
+font_color = Color(0.894118, 0.611765, 0.458824, 1)
+outline_size = 1
+outline_color = Color(0.776471, 0.396078, 0.235294, 1)
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(40, 40)
+theme_override_styles/normal = SubResource("StyleBoxTexture_0nhjd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0nhjd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0nhjd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0nhjd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0nhjd")
+script = ExtResource("1_p0rcw")
+base_color = Color(0.815686, 0.45098, 0.321569, 0.643137)
+socket_is = 7
+
+[node name="ItemIcon" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_mcql7")
+
+[node name="ItemAmount" type="Label" parent="ItemIcon"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "999"
+label_settings = SubResource("LabelSettings_p3cy3")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

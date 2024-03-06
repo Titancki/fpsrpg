@@ -30,7 +30,6 @@ func peer_disconnected(id):
 		if i.name == str(id):
 			i.queue_free()
 
-
 # Called only from clients
 func connected_to_server():
 	print("Connected to server !")
@@ -80,10 +79,10 @@ func change_level(scene: PackedScene):
 	level.add_child(scene.instantiate())
 
 @rpc("any_peer")
-func SendPlayerInformation(name, id):
+func SendPlayerInformation(_name, id):
 	if !System.players.has(id):
 		System.players[id] ={
-			"name" : name,
+			"name" : _name,
 			"id" : id,
 			"score": 0
 		}

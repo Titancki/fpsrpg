@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerDataResource" load_steps=4 format=3 uid="uid://c1gosk0c1u6qu"]
+
+[ext_resource type="Resource" uid="uid://da7q0udepfd7t" path="res://Items/offhand/ressources/shield.tres" id="1_bfjt1"]
+[ext_resource type="Script" path="res://Entities/Player/player_data.gd" id="1_bo4fq"]
+[ext_resource type="Resource" uid="uid://7ribhjmnkdd6" path="res://Items/weapon/ressources/hammer.tres" id="2_e3lto"]
+
+[resource]
+script = ExtResource("1_bo4fq")
+weapon_equiped = ExtResource("2_e3lto")
+offhand_equiped = ExtResource("1_bfjt1")

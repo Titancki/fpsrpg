@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds5p8j5kuubte"]
+
+[ext_resource type="Script" path="res://Items/equipment.gd" id="1_a6qu1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nivqn"]
+height = 0.7
+radius = 0.02
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1ed2o"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jlii1"]
+size = Vector3(0.15, 0.15, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_plqnv"]
+size = Vector3(0.15, 0.15, 0.3)
+
+[node name="hammer" type="Area3D" groups=["DamageSource"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_a6qu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 0, -3.82137e-15, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, 1.16431e-08, 3.94844e-08, -0.185286)
+shape = SubResource("CylinderShape3D_nivqn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 0, -3.82137e-15, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, 1.16431e-08, 3.94844e-08, -0.185286)
+mesh = SubResource("CylinderMesh_1ed2o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 0, -3.82137e-15, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -4.66716e-08, -3.94844e-08, -0.590899)
+shape = SubResource("BoxShape3D_jlii1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 0, -3.82137e-15, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -4.66716e-08, -3.94844e-08, -0.590899)
+mesh = SubResource("BoxMesh_plqnv")
